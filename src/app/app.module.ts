@@ -6,8 +6,17 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './Shared/login/login.component';
 import { NavBarComponent } from './Shared/nav-bar/nav-bar.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatExpansionModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
-import {ReactiveFormsModule} from '@angular/forms';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatExpansionModule,
+  MatFormField,
+  MatFormFieldModule, MatInputModule,
+  MatSidenavModule,
+  MatToolbarModule
+} from '@angular/material';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,6 +31,12 @@ import {ReactiveFormsModule} from '@angular/forms';
     ReactiveFormsModule,
     MatToolbarModule,
     MatExpansionModule,
+    MatCardModule,
+    HttpClientModule,
+    MatButtonModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatSidenavModule
   ],
   providers: [],

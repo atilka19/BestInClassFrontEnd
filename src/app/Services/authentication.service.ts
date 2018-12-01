@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {User} from '../Shared/models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -43,6 +44,12 @@ export class AuthenticationService {
     } if (currentUser.isAdmin === false) {
       return false;
     }
+  }
+
+  register(user: User): Observable<User> {
+
+    return this.http.post<User>(this.apiURL + '/api/user', user);
+
   }
 
   logout(): void {

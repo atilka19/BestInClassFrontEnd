@@ -16,7 +16,8 @@
 </mat-card>
 <mat-card *ngIf="loggedin == true">
 Logged-In As {{getUserName()}}
-  <mat-card-actions *ngIf="showAdmin == true">
-  <button mat-flat-button color="Warn" onclick="console.log('If works')">Works</button>
+  <mat-card-actions align="right">
+    <button mat-flat-button color="Warn" (click)="logout()">Logout</button>
+  <button mat-flat-button color="Warn"  *ngIf="showAdmin == true" routerLink="/admin">Admin Page</button>
   </mat-card-actions>
 </mat-card>

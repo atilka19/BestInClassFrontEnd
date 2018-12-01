@@ -8,21 +8,24 @@ import { NavBarComponent } from './Shared/nav-bar/nav-bar.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
-  MatCardModule,
+  MatCardModule, MatDividerModule,
   MatExpansionModule,
-  MatFormField,
   MatFormFieldModule, MatInputModule,
   MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { AdminComponent } from './User/admin/admin.component';
+import { RegisterComponent } from './Shared/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    NavBarComponent
+    NavBarComponent,
+    AdminComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +40,7 @@ import {HttpClientModule} from '@angular/common/http';
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDividerModule,
     MatSidenavModule
   ],
   providers: [],

@@ -1,0 +1,13 @@
+<mat-divider></mat-divider>
+<form class="example-form" [formGroup]="registerForm" (ngSubmit)="register()">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Username"  type="text" formControlName="username">
+  </mat-form-field>
+  <mat-divider></mat-divider>
+  <mat-form-field class="example-full-width">
+    <input matInput type="password" placeholder="Password" formControlName="password">
+  </mat-form-field>
+  <br>
+  <button mat-fab color="primary" type="submit">Save</button>
+  <button mat-fab color="primary" routerLink="/">Back</button>
+</form>

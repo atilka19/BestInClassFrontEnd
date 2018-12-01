@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
         }
         window.alert('Login Successful!');
         this.loggedin = true;
+        this.loading = false;
       }, error => {
         this.errormessage = error.message;
         this.loading = false;
@@ -37,6 +38,11 @@ export class LoginComponent implements OnInit {
 
   getUserName(): string {
     return this._authService.getUserName();
+  }
+
+  logout(): void {
+    this.loggedin = false;
+    return this._authService.logout();
   }
 
   getIsAdmin(): boolean {

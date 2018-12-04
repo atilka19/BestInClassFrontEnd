@@ -1,4 +1,4 @@
-<mat-card *ngIf="loggedin == false">
+<mat-card *ngIf="getToken() == null">
   <form name="loginForm" (ngSubmit)="login()">
     <mat-form-field>
       <input matInput type="text" class="form-control" name="username" [(ngModel)]="model.username" placeholder="Username" #username="ngModel" required />
@@ -14,7 +14,7 @@
     </div>
   </form>
 </mat-card>
-<mat-card *ngIf="loggedin == true">
+<mat-card *ngIf="getToken() != null">
 Logged-In As {{getUserName()}}
   <mat-card-actions align="right">
     <button mat-flat-button color="Warn" (click)="logout()">Logout</button>

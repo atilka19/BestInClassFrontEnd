@@ -4,10 +4,17 @@ import {AppComponent} from './app.component';
 import {RegisterComponent} from './Shared/register/register.component';
 import {AdminComponent} from './User/admin/admin.component';
 import {AuthGuard} from './Guards/auth.guard';
+import {NewsUpdateComponent} from './News/news-update/news-update.component';
+import {NewsListComponent} from './News/news-list/news-list.component';
+import {NewsAddComponent} from './News/news-add/news-add.component';
 
 const routes: Routes = [
   {path: 'register', component: RegisterComponent},
-  {path: 'admin', component: AdminComponent, canActivate: [AuthGuard] }
+  {path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
+  {path: 'news', component: NewsListComponent, canActivate: [AuthGuard]},
+  {path: 'news/update/:id', component: NewsUpdateComponent, canActivate: [AuthGuard]},
+  {path: 'news/add', component: NewsAddComponent, canActivate: [AuthGuard]},
+
 ];
 
 @NgModule({

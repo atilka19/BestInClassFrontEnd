@@ -45,6 +45,10 @@ export class LoginComponent implements OnInit {
     return this._authService.logout();
   }
 
+  getisAdmin(): boolean {
+    return this._authService.getIsAdmin();
+  }
+
   getToken(): string {
     return this._authService.getToken();
   }

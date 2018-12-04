@@ -10,7 +10,7 @@ import {
   MatButtonModule,
   MatCardModule, MatDividerModule,
   MatExpansionModule,
-  MatFormFieldModule, MatInputModule,
+  MatFormFieldModule, MatInputModule, MatListModule,
   MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
@@ -47,6 +47,7 @@ import { NewsUpdateComponent } from './News/news-update/news-update.component';
     MatButtonModule,
     FormsModule,
     MatFormFieldModule,
+    MatListModule,
     MatInputModule,
     MatDividerModule,
     MatSidenavModule

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {News} from '../../Shared/models/News';
 
 @Component({
   selector: 'app-news-list',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsListComponent implements OnInit {
 
+  _news: News[];
   constructor() { }
 
   ngOnInit() {

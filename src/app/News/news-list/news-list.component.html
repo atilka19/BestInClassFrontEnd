@@ -2,21 +2,14 @@
   <mat-list *ngFor="let news of _news">
     <mat-card>
       <mat-card-header>
-      <mat-card-title>
+      <mat-card-title routerLink="/news/{{news.id}}">
         {{news.header}}
       </mat-card-title>
         <mat-card-subtitle>
-          {{news.shortdesc}}
+          {{news.shortDesc}}
         </mat-card-subtitle>
       </mat-card-header>
       <img src="{{news.picture}}">
-      <mat-card-content>
-        {{news.body}}
-      </mat-card-content>
-      <mat-card-actions *ngIf="getIsAdmin() == true">
-        <button mat-fab color="warn" routerLink="/news/update/{{news.id}}">Update</button>
-        <button mat-fab color="warn" (click)="deleteNews(news.id)">Delete</button>
-      </mat-card-actions>
     </mat-card>
   </mat-list>
 </ul>

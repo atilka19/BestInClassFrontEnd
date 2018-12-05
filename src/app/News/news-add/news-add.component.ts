@@ -18,7 +18,7 @@ export class NewsAddComponent implements OnInit {
     tags: new FormControl('')
   });
 
-  constructor(private _newsService: NewsService, private router: Router) { }
+  constructor(private _newsService: NewsService, private router: Router,) { }
 
   ngOnInit() {
   }
@@ -27,6 +27,7 @@ export class NewsAddComponent implements OnInit {
     const newstb = this.newsForm.value;
     this._newsService.addNews(newstb).subscribe(() =>
       this.router.navigateByUrl('/'));
+    window.location.reload();
   }
 
 }

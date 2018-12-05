@@ -21,6 +21,7 @@ import { RegisterComponent } from './Shared/register/register.component';
 import { NewsListComponent } from './News/news-list/news-list.component';
 import { NewsAddComponent } from './News/news-add/news-add.component';
 import { NewsUpdateComponent } from './News/news-update/news-update.component';
+import { NewsByIdComponent } from './News/news-by-id/news-by-id.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NewsUpdateComponent } from './News/news-update/news-update.component';
     RegisterComponent,
     NewsListComponent,
     NewsAddComponent,
-    NewsUpdateComponent
+    NewsUpdateComponent,
+    NewsByIdComponent
   ],
   imports: [
     BrowserModule,

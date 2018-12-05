@@ -2,7 +2,7 @@ export class News {
   id: number;
   header: string;
   picture: string;
-  shortdesc: string;
+  shortDesc: string;
   body: string;
   tags: string[];
 }

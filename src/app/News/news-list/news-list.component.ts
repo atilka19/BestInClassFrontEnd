@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {News} from '../../Shared/models/News';
 import {AuthenticationService} from '../../Services/authentication.service';
 import {NewsService} from '../../Services/news.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-news-list',
@@ -11,7 +12,9 @@ import {NewsService} from '../../Services/news.service';
 export class NewsListComponent implements OnInit {
 
   _news: News[];
-  constructor(private _authService: AuthenticationService, private _newsService: NewsService) { }
+  constructor(private _authService: AuthenticationService,
+              private _newsService: NewsService,
+              private router: Router) { }
 
   ngOnInit() {
     this.refresh();
@@ -26,14 +29,15 @@ export class NewsListComponent implements OnInit {
         );
   }
 
-  deleteNews(id: number) {
-    this._newsService.deleteNews(id).subscribe(msg => {
-      this.refresh();
-    });
-  }
-
   getToken(): string {
     return this._authService.getToken();
+  }
+
+  deleteNews(id: number) {
+    this._newsService.deleteNews(id).subscribe(msg => {
+      window.alert('Element Successfully Deleted!');
+      this.router.navigateByUrl('/');
+    });
   }
 
   getIsAdmin(): boolean {

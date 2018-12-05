@@ -38,11 +38,14 @@ export class AuthenticationService {
   }
 
   getIsAdmin(): boolean {
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    if (currentUser.isAdmin === true) {
-      return true;
-    } if (currentUser.isAdmin === false) {
+    if (localStorage.getItem('currentUser') === null) {
       return false;
+    } else {const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      if (currentUser.isAdmin === true) {
+        return true;
+      } if (currentUser.isAdmin === false) {
+        return false;
+      }
     }
   }
 

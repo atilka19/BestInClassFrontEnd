@@ -35,4 +35,8 @@ export class NewsListComponent implements OnInit {
   getToken(): string {
     return this._authService.getToken();
   }
+
+  getIsAdmin(): boolean {
+    return this._authService.getIsAdmin();
+  }
 }

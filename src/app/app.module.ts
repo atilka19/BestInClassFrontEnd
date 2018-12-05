@@ -20,7 +20,6 @@ import { AdminComponent } from './User/admin/admin.component';
 import { RegisterComponent } from './Shared/register/register.component';
 import { NewsListComponent } from './News/news-list/news-list.component';
 import { NewsAddComponent } from './News/news-add/news-add.component';
-import { NewsDeleteComponent } from './News/news-delete/news-delete.component';
 import { NewsUpdateComponent } from './News/news-update/news-update.component';
 
 @NgModule({
@@ -32,7 +31,6 @@ import { NewsUpdateComponent } from './News/news-update/news-update.component';
     RegisterComponent,
     NewsListComponent,
     NewsAddComponent,
-    NewsDeleteComponent,
     NewsUpdateComponent
   ],
   imports: [

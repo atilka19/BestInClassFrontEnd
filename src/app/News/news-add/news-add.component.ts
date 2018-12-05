@@ -26,7 +26,7 @@ export class NewsAddComponent implements OnInit {
   submit() {
     const newstb = this.newsForm.value;
     this._newsService.addNews(newstb).subscribe(() =>
-      this.router.navigateByUrl('/news'));
+      this.router.navigateByUrl('/'));
   }
 
 }

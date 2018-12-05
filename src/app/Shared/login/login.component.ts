@@ -12,7 +12,6 @@ export class LoginComponent implements OnInit {
   loggedin = false;
   model: any = {};
   errormessage = '';
-  showAdmin = false;
 
   constructor(private router: Router, private _authService: AuthenticationService) { }
 
@@ -23,13 +22,11 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     this._authService.login(this.model.username, this.model.password).subscribe(
       success => {
-        if (this._authService.getIsAdmin() === true) {
-          this.showAdmin = true;
-        }
         window.alert('Login Successful!');
+        window.location.reload();
         this.loggedin = true;
         this.loading = false;
-      }, error => {
+        }, error => {
         this.errormessage = error.message;
         this.loading = false;
       }
@@ -40,9 +37,10 @@ export class LoginComponent implements OnInit {
     return this._authService.getUserName();
   }
 
-  logout(): void {
+  logout(): Promise<boolean> {
     this.loggedin = false;
-    return this._authService.logout();
+    this._authService.logout();
+    return this.router.navigateByUrl('/');
   }
 
   getisAdmin(): boolean {

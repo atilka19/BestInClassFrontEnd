@@ -30,7 +30,7 @@ export class NewsService {
     httpOptions.headers =
       httpOptions.headers.set('Authorization', 'Bearer' + this.authService.getToken());
 
-    return this.http.post<News>(this.apiURL, httpOptions);
+    return this.http.post<News>(this.apiURL, news, httpOptions);
   }
 
   deleteNews(id: number): Observable<any> {

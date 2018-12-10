@@ -10,7 +10,8 @@ import {AuthenticationService} from '../../Services/authentication.service';
   styleUrls: ['./news-by-id.component.css']
 })
 export class NewsByIdComponent implements OnInit {
-   news: News;
+  ID: number;
+  news: News;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -18,9 +19,10 @@ export class NewsByIdComponent implements OnInit {
               private _authService: AuthenticationService) { }
 
   ngOnInit() {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this._newsService.getNewsByID(id).subscribe( newsFromCall => {
+    this.ID = +this.route.snapshot.paramMap.get('id');
+    this._newsService.getNewsByID(this.ID).subscribe( newsFromCall => {
       this.news = newsFromCall;
+      console.log(newsFromCall);
     });
   }
 

@@ -39,7 +39,8 @@ export class NewsUpdateComponent implements OnInit {
 
   submit() {
     const news = this.newsForm.value;
+    news.id = this.id;
     this._newsService.updateNews(news).subscribe(() =>
-    this.router.navigateByUrl('/news'));
+      this.router.navigateByUrl('/'));
   }
 }

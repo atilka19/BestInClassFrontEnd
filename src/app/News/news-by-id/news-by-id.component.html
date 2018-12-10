@@ -1,15 +1,10 @@
-<button routerLink="/">Back</button>
-<img src="{{news.picture}}">
+<button mat-flat-button color="primary" routerLink="/">Back</button>
 <div *ngIf="getIsAdmin() == true">
-  <button mat-fab color="warn" routerLink="/news/update/{{news.id}}">Update</button>
+  <button mat-fab color="warn" routerLink="/news/update/{{ID}}">Update</button>
   <button mat-fab color="warn" (click)="deleteNews(news.id)">Delete</button>
 </div>
-<div *ngIf="news">
-  <h2>{{news.header}}</h2>
-  <h3>{{news.shortDesc}} {{customer.lastName}}</h3>
-  <h4>{{news.body}}</h4>
-</div>
 <mat-card>
+  <img src="{{news.picture}}" alt="newsgirl">
   <mat-card-header>
     <mat-card-title>
       {{news.header}}
@@ -21,5 +16,6 @@
   <mat-card-content>
     {{news.body}}
   </mat-card-content>
+</mat-card>
 
 

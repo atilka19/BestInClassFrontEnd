@@ -22,6 +22,7 @@ import { NewsListComponent } from './News/news-list/news-list.component';
 import { NewsAddComponent } from './News/news-add/news-add.component';
 import { NewsUpdateComponent } from './News/news-update/news-update.component';
 import { NewsByIdComponent } from './News/news-by-id/news-by-id.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { NewsByIdComponent } from './News/news-by-id/news-by-id.component';
     NewsListComponent,
     NewsAddComponent,
     NewsUpdateComponent,
-    NewsByIdComponent
+    NewsByIdComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,

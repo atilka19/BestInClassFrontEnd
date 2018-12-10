@@ -1,4 +1,6 @@
-<ul *ngIf="_news">
+
+<app-news-add *ngIf="getIsAdmin() == true"></app-news-add>
+<ul *ngIf="_news" class="content">
   <mat-list *ngFor="let news of _news">
     <mat-card>
       <mat-card-header>
@@ -13,3 +15,4 @@
     </mat-card>
   </mat-list>
 </ul>
+

@@ -19,6 +19,7 @@ after_success:
 - firebase use --add bestinclassfrontend
 - firebase deploy --token $FIREBASE_TOKEN
 
+
 notifications:
   email:
     on_failure: change

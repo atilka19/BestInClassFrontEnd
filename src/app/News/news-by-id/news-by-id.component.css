@@ -1,0 +1,15 @@
+img {
+  height: 400px;
+  width: 100%;
+}
+mat-card-header {
+  background-color: #262424;
+  width: 100%;
+  color: #dd0f0f;
+}
+mat-card-subtitle {
+  color: aliceblue;
+  color: #dd0f0f;
+
+}
+

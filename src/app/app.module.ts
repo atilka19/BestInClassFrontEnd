@@ -6,14 +6,36 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './Shared/login/login.component';
 import { NavBarComponent } from './Shared/nav-bar/nav-bar.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatExpansionModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
-import {ReactiveFormsModule} from '@angular/forms';
+import {
+  MatButtonModule,
+  MatCardModule, MatDividerModule,
+  MatExpansionModule,
+  MatFormFieldModule, MatInputModule, MatListModule,
+  MatSidenavModule,
+  MatToolbarModule
+} from '@angular/material';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import { AdminComponent } from './User/admin/admin.component';
+import { RegisterComponent } from './Shared/register/register.component';
+import { NewsListComponent } from './News/news-list/news-list.component';
+import { NewsAddComponent } from './News/news-add/news-add.component';
+import { NewsUpdateComponent } from './News/news-update/news-update.component';
+import { NewsByIdComponent } from './News/news-by-id/news-by-id.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    NavBarComponent
+    NavBarComponent,
+    AdminComponent,
+    RegisterComponent,
+    NewsListComponent,
+    NewsAddComponent,
+    NewsUpdateComponent,
+    NewsByIdComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +44,14 @@ import {ReactiveFormsModule} from '@angular/forms';
     ReactiveFormsModule,
     MatToolbarModule,
     MatExpansionModule,
+    MatCardModule,
+    HttpClientModule,
+    MatButtonModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatListModule,
+    MatInputModule,
+    MatDividerModule,
     MatSidenavModule
   ],
   providers: [],

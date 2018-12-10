@@ -1,0 +1,22 @@
+.content {
+  max-width: 800px;
+  margin: auto;
+}
+
+img {
+  height: 200px;
+  width: 100%;
+}
+mat-card {
+  width: 800px;
+  height: 260px;
+  background-color: #111111;
+  color: aliceblue;
+}
+mat-card-header {
+  color: aliceblue;
+}
+mat-card-subtitle {
+  color: aliceblue;
+
+}

@@ -1,0 +1,18 @@
+<form [formGroup]="newsForm" (ngSubmit)="submit()">
+  <mat-form-field>
+    <input matInput placeholder="Header" type="text" formControlName="header">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Picture URL" type="url" formControlName="picture">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Short Description" type="text" formControlName="shortDesc">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Body" type="text" formControlName="body">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Tags" type="text" formControlName="tags">
+  </mat-form-field>
+  <button mat-flat-button color="warn" type="submit">Submit</button>
+</form>

@@ -23,6 +23,7 @@ import { NewsAddComponent } from './News/news-add/news-add.component';
 import { NewsUpdateComponent } from './News/news-update/news-update.component';
 import { NewsByIdComponent } from './News/news-by-id/news-by-id.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import {BarRatingModule} from 'ngx-bar-rating';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
     MatExpansionModule,
     MatCardModule,
     HttpClientModule,
+    BarRatingModule,
     MatButtonModule,
     FormsModule,
     MatFormFieldModule,

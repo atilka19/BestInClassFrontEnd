@@ -1,0 +1,14 @@
+<ul *ngIf="_cars" class="content">
+  <mat-list *ngFor="let car of _carsd">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title routerLink="/news/{{news.id}}">
+          {{car.make}}
+        </mat-card-title>
+        <mat-card-subtitle>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <img src="{{news.picture}}">
+    </mat-card>
+  </mat-list>
+</ul>

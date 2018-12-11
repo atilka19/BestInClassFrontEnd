@@ -18,17 +18,21 @@ li a {
   text-decoration: none;
 }
 
-#loginPad {
-  size: 100px;
-  height: 10px;
+mat-toolbar-row {
+  height: 120px;
+  background-color: #111111;
+}
+mat-card {
+  height: 100%;
+}
+
+mat-menu {
+  color: white;
 }
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
   background-color: #111;
-}
-mat-toolbar-row {
-  background-color: #111111;
 }
 .fill-space {
 flex: 1 1 auto;

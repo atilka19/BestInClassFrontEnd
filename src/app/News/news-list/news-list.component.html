@@ -1,20 +1,3 @@
-<div class="stars container">
-  <div class="row">
-
-    <div class="col-md-4">
-      <section>
-        <b>CSS Stars</b>
-        <bar-rating [(rate)]="cssRate" [max]="5"></bar-rating>
-      </section>
-    </div>
-
-    <div class="col-md-4">
-      <section>
-        <b>Horizontal</b>
-        <bar-rating [(rate)]="faRate" [max]="10" [theme]="'horizontal'"></bar-rating>
-      </section>
-    </div>
-  </div>
 
 <app-news-add *ngIf="getIsAdmin() == true"></app-news-add>
 <ul *ngIf="_news" class="content">

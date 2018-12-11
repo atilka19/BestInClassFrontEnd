@@ -1,4 +1,4 @@
-export class Car {
+export class Review {
   id: number;
   carId: number;
   header: string;

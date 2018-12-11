@@ -10,7 +10,7 @@ import {
   MatButtonModule,
   MatCardModule, MatDividerModule,
   MatExpansionModule,
-  MatFormFieldModule, MatInputModule, MatListModule,
+  MatFormFieldModule, MatInputModule, MatListModule, MatMenuModule,
   MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
@@ -24,6 +24,8 @@ import { NewsUpdateComponent } from './News/news-update/news-update.component';
 import { NewsByIdComponent } from './News/news-by-id/news-by-id.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import {BarRatingModule} from 'ngx-bar-rating';
+import { CarListComponent } from './Car/car-list/car-list.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -36,13 +38,16 @@ import {BarRatingModule} from 'ngx-bar-rating';
     NewsAddComponent,
     NewsUpdateComponent,
     NewsByIdComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    CarListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    FlexLayoutModule,
+    MatMenuModule,
     MatToolbarModule,
     MatExpansionModule,
     MatCardModule,

@@ -1,6 +1,8 @@
+import {Car} from './Car';
+
 export class Review {
   id: number;
-  carId: number;
+  car: Car;
   header: string;
   body: string;
   ratingEveryDay: number;

@@ -4,4 +4,5 @@ export class Car {
   model: string;
   year: number;
   type: string;
+  picture: string;
 }

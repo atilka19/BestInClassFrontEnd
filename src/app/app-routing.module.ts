@@ -12,6 +12,7 @@ import {WelcomeComponent} from './welcome/welcome.component';
 import {LoginComponent} from './Shared/login/login.component';
 import {CarListComponent} from './Car/car-list/car-list.component';
 import {CarByIdComponent} from './Car/car-by-id/car-by-id.component';
+import {ReviewListComponent} from './Review/review-list/review-list.component';
 
 const routes: Routes = [
   {path: '', component: NewsListComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'news/add', component: NewsAddComponent, canActivate: [AdminGuard]},
   {path: 'cars', component: CarListComponent},
   {path: 'cars/:id', component: CarByIdComponent},
+  {path: 'reviews', component: ReviewListComponent, canActivate: [AuthGuard]},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'admin', component: AdminComponent, canActivate: [AdminGuard] },

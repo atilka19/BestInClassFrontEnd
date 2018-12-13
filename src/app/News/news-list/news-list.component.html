@@ -1,18 +1,23 @@
-
-<app-news-add *ngIf="getIsAdmin() == true"></app-news-add>
-<ul *ngIf="_news" class="content">
-  <mat-list *ngFor="let news of _news">
-    <mat-card>
-      <mat-card-header>
-      <mat-card-title routerLink="/news/{{news.id}}">
-        {{news.header}}
-      </mat-card-title>
-        <mat-card-subtitle>
-          {{news.shortDesc}}
-        </mat-card-subtitle>
-      </mat-card-header>
-      <img src="{{news.picture}}">
-    </mat-card>
-  </mat-list>
-</ul>
-
+<div class="container"
+     fxLayout="column"
+     fxFill
+     fxLayoutGap="30px">
+  <div fxLayout="row">
+    <app-news-add *ngIf="getIsAdmin() == true"></app-news-add>
+  </div>
+  <div fxLayout="row wrap" fxLayoutAlign="center" *ngIf="_news">
+    <div fxFlex="50" [fxFlex.md]="'50'" [fxFlex.sm]="'100'" *ngFor="let news of _news">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title routerLink="/news/{{news.id}}">
+            {{news.header}}
+          </mat-card-title>
+          <mat-card-subtitle>
+            {{news.shortDesc}}
+          </mat-card-subtitle>
+          </mat-card-header>
+        <img src="{{news.picture}}">
+      </mat-card>
+    </div>
+  </div>
+</div>

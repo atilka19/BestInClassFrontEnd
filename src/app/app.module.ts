@@ -28,6 +28,7 @@ import { CarListComponent } from './Car/car-list/car-list.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { CarAddComponent } from './Car/car-add/car-add.component';
 import { CarByIdComponent } from './Car/car-by-id/car-by-id.component';
+import { ReviewListComponent } from './Review/review-list/review-list.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { CarByIdComponent } from './Car/car-by-id/car-by-id.component';
     WelcomeComponent,
     CarListComponent,
     CarAddComponent,
-    CarByIdComponent
+    CarByIdComponent,
+    ReviewListComponent
   ],
   imports: [
     BrowserModule,

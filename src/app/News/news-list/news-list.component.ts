@@ -22,22 +22,12 @@ export class NewsListComponent implements OnInit {
 
   refresh() {
       this._newsService.getNews().subscribe(list => {
+        console.log(list);
         this._news = list;
       }, error => {
         return error;
         }
         );
-  }
-
-  getToken(): string {
-    return this._authService.getToken();
-  }
-
-  deleteNews(id: number) {
-    this._newsService.deleteNews(id).subscribe(msg => {
-      window.alert('Element Successfully Deleted!');
-      this.router.navigateByUrl('/');
-    });
   }
 
   getIsAdmin(): boolean {

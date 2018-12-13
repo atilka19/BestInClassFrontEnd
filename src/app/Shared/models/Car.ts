@@ -1,3 +1,5 @@
+import {Review} from './Review';
+
 export class Car {
   id: number;
   make: string;
@@ -5,4 +7,5 @@ export class Car {
   year: number;
   type: string;
   picture: string;
+  reviews: Review[];
 }

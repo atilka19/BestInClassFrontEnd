@@ -1,4 +1,15 @@
-<mat-grid-list cols="5" rowHeight="150px">
-  <mat-grid-tile>
+<mat-grid-list cols="4" rowHeight="150px" *ngIf="car">
+  <mat-grid-tile colspan="2" rowspan="2" id="imgTile">
+    <img src="{{car.picture}}" alt="carPic" layout-fill>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2" rowspan="1" id="tile">
+    <mat-card>
+      <mat-card-title>
+        {{car.make}} {{car.model}}
+      </mat-card-title>
+      <mat-card-subtitle>
+        {{car.year}} {{car.type}}
+      </mat-card-subtitle>
+    </mat-card>
   </mat-grid-tile>
 </mat-grid-list>

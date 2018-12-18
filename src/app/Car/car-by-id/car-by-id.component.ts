@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {AuthenticationService} from '../../Services/authentication.service';
 import {CarService} from '../../Services/car.service';
 import {Car} from '../../Shared/models/Car';
+import {Review} from '../../Shared/models/Review';
 
 export interface Tile {
   color: string;
@@ -19,7 +20,8 @@ export interface Tile {
 export class CarByIdComponent implements OnInit {
   ID: number;
   car: Car;
-  tiles: Tile[];
+  reviews: Review[];
+  loading: boolean;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -27,21 +29,13 @@ export class CarByIdComponent implements OnInit {
               private _authService: AuthenticationService) { }
 
   ngOnInit() {
+    this.loading = true;
     this.ID = +this.route.snapshot.paramMap.get('id');
     this._carService.getCarByID(this.ID).subscribe( carFromCall => {
       this.car = carFromCall;
-      console.log(carFromCall);
-      this.fillBoxes();
+      this.reviews = carFromCall.reviews;
+      console.log(this.reviews);
+      this.loading = false;
     });
   }
-
- fillBoxes() {
-   this.tiles = [
-     {text: '', cols: 2, rows: 2, color: this.car.picture},
-     {text: this.car.make, cols: 1, rows: 1, color: ''},
-     {text: this.car.model, cols: 1, rows: 1, color: ''},
-     {text: this.car.type, cols: 1, rows: 1, color: ''},
-     {text: this.car.year.toString(), cols: 1, rows: 1, color: ''}
-   ];
- }
 }

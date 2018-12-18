@@ -12,6 +12,7 @@ import {CarService} from '../../Services/car.service';
 })
 export class CarListComponent implements OnInit {
   _cars: Car[];
+  loading: boolean;
 
   constructor(private _authService: AuthenticationService,
               private _carService: CarService,
@@ -22,9 +23,12 @@ export class CarListComponent implements OnInit {
   }
 
   refresh() {
+    this.loading = true;
     this._carService.getCars().subscribe(list => {
         this._cars = list;
+        this.loading = false;
       }, error => {
+        this.loading = false;
         return error;
       }
     );

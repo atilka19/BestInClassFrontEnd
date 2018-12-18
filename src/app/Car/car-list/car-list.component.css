@@ -1,6 +1,7 @@
-mat-list {
+mat-card {
   margin-top: 15px;
   border: 2px solid orangered;
   border-radius: 5px;
   background-color: darkgray;
+  width: 100%;
 }

@@ -6,7 +6,10 @@
     <app-news-add *ngIf="getIsAdmin() == true"></app-news-add>
   </div>
   <div fxLayout="row wrap" fxLayoutAlign="center" *ngIf="_news">
-    <div fxFlex="50" [fxFlex.md]="'50'" [fxFlex.sm]="'100'" *ngFor="let news of _news">
+    <div fxFlex="50"
+         [fxFlex.md]="'300'"
+         [fxFlex.sm]="'300'"
+         *ngFor="let news of _news">
       <mat-card>
         <mat-card-header>
           <mat-card-title routerLink="/news/{{news.id}}">
@@ -15,7 +18,7 @@
           <mat-card-subtitle>
             {{news.shortDesc}}
           </mat-card-subtitle>
-          </mat-card-header>
+        </mat-card-header>
         <img src="{{news.picture}}">
       </mat-card>
     </div>

@@ -13,6 +13,7 @@ import {LoginComponent} from './Shared/login/login.component';
 import {CarListComponent} from './Car/car-list/car-list.component';
 import {CarByIdComponent} from './Car/car-by-id/car-by-id.component';
 import {ReviewListComponent} from './Review/review-list/review-list.component';
+import {ReviewByIdComponent} from './Review/review-by-id/review-by-id.component';
 
 const routes: Routes = [
   {path: '', component: NewsListComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'cars', component: CarListComponent},
   {path: 'cars/:id', component: CarByIdComponent},
   {path: 'reviews', component: ReviewListComponent, canActivate: [AuthGuard]},
+  {path: 'reviews/:id', component: ReviewByIdComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'admin', component: AdminComponent, canActivate: [AdminGuard] },

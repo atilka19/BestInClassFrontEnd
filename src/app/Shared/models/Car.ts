@@ -7,5 +7,5 @@ export class Car {
   year: number;
   type: string;
   picture: string;
-  reviews: Review[];
+  reviews?: Review[];
 }

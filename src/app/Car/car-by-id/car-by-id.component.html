@@ -1,14 +1,13 @@
 <div class="container"
      fxLayout="column"
-     fxFill
-     fxLayoutGap="30px">
-  <div fxLayout="row wrap" fxLayoutAlign="center">
+     fxFill>
+<div fxLayoutAlign="center">
   <mat-grid-list fxFlex="50" [fxFlex.md]="'50'" [fxFlex.sm]="'100'"  cols="5" rowHeight="100px" *ngIf="car">
   <mat-grid-tile colspan="2" rowspan="2" id="imgTile">
     <img src="{{car.picture}}" alt="carPic" layout-fill>
   </mat-grid-tile>
   <mat-grid-tile colspan="3" rowspan="1" id="tile">
-    <mat-card>
+    <mat-card class="carCard">
       <mat-card-title>
         {{car.make}} {{car.model}}
       </mat-card-title>
@@ -18,5 +17,35 @@
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
+  <br>
+  <h4 *ngIf="loading == true"
+      fxFill
+      fxLayoutAlign="center center">
+    <mat-spinner></mat-spinner>
+  </h4>
+</div>
+  <div fxLayout="row wrap"
+       fxLayoutAlign="space-evenly start"
+       fxLayoutGap="40px"
+        *ngIf="loading == false">
+  <div fxFlex="33"
+    [fxFlex.md]="'700'"
+    [fxFlex.sm]="'300'"
+    [fxFlex.xs]="'300'"
+    *ngFor="let review of reviews">
+<mat-card  class="reviewCards" >
+    <mat-card-title>
+      {{review.header}}
+        </mat-card-title>
+          <mat-card-subtitle>
+            {{review.ratingOverAll}}
+            {{review.ratingEveryDay}} {{review.ratingWeekend}} {{review.ratingPracticality}}
+            {{review.ratingExterior}} {{review.ratingInterior}}
+          </mat-card-subtitle>
+        <mat-card-content>
+          {{review.body}}
+    </mat-card-content>
+</mat-card>
+  </div>
   </div>
 </div>

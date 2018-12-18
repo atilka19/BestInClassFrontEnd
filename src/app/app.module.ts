@@ -10,7 +10,7 @@ import {
   MatButtonModule,
   MatCardModule, MatDividerModule,
   MatExpansionModule,
-  MatFormFieldModule, MatGridListModule, MatInputModule, MatListModule, MatMenuModule,
+  MatFormFieldModule, MatGridListModule, MatInputModule, MatListModule, MatMenuModule, MatProgressSpinnerModule,
   MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
@@ -29,6 +29,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import { CarAddComponent } from './Car/car-add/car-add.component';
 import { CarByIdComponent } from './Car/car-by-id/car-by-id.component';
 import { ReviewListComponent } from './Review/review-list/review-list.component';
+import { ReviewByIdComponent } from './Review/review-by-id/review-by-id.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ReviewListComponent } from './Review/review-list/review-list.component'
     CarListComponent,
     CarAddComponent,
     CarByIdComponent,
-    ReviewListComponent
+    ReviewListComponent,
+    ReviewByIdComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +63,7 @@ import { ReviewListComponent } from './Review/review-list/review-list.component'
     HttpClientModule,
     BarRatingModule,
     MatButtonModule,
+    MatProgressSpinnerModule,
     FormsModule,
     MatFormFieldModule,
     MatListModule,

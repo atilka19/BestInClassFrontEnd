@@ -23,6 +23,7 @@ export class ReviewListComponent implements OnInit {
   refresh() {
     this._reviewService.getReviews().subscribe(list => {
         this._reviews = list;
+        console.log(list);
       }, error => {
         return error;
       }

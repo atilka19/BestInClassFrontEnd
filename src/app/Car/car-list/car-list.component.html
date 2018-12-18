@@ -1,10 +1,25 @@
-
-<ul *ngIf="_cars" class="content">
-  <mat-list *ngFor="let car of _cars">
-    <mat-list-item routerLink="/cars/{{car.id}}">
-      <img matListAvatar src="{{car.picture}}" alt="carPic">
-      <h3 matLine> {{car.make}} {{car.model}}</h3>
-      <p matLine> {{car.type}} {{car.year}}</p>
-    </mat-list-item>
-  </mat-list>
-</ul>
+<div class="container"
+     fxLayout="column"
+     fxFill>
+<div *ngIf="_cars && loading == false"
+    class="content"
+    fxLayout="row wrap"
+    fxLayoutAlign="center center"
+    fxLayoutGap="40px">
+   <div *ngFor="let car of _cars"
+        fxFlex="33"
+        [fxFlex.md]="'30'"
+        [fxFlex.sm]="'10'"
+        [fxFlex.xl]="'10'">
+  <mat-card routerLink="/cars/{{car.id}}">
+    <mat-card-title>
+      <img mat-card-avatar src="{{car.picture}}" alt="carPic">
+      {{car.make}} {{car.model}}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{car.type}} {{car.year}}
+    </mat-card-subtitle>
+  </mat-card>
+</div>
+</div>
+</div>

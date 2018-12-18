@@ -5,6 +5,9 @@ mat-card {
   background-color: darkgray;
 }
 
+mat-label {
+  background-color: ghostwhite;
+}
 div {
   margin-top: 10px;
   margin-bottom: 10px;

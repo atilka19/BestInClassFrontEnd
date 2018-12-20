@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     this._authService.login(this.model.username, this.model.password).subscribe(
       success => {
         window.alert('Login Successful!');
-        window.location.reload();
+        this.router.navigateByUrl('/');
         this.loggedin = true;
         this.loading = false;
         }, error => {
@@ -35,19 +35,5 @@ export class LoginComponent implements OnInit {
 
   getUserName(): string {
     return this._authService.getUserName();
-  }
-
-  logout(): Promise<boolean> {
-    this.loggedin = false;
-    this._authService.logout();
-    return this.router.navigateByUrl('/');
-  }
-
-  getisAdmin(): boolean {
-    return this._authService.getIsAdmin();
-  }
-
-  getToken(): string {
-    return this._authService.getToken();
   }
 }

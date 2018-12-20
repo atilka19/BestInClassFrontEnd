@@ -1,15 +1,34 @@
+mat-card {
+  margin-top: 15px;
+  border: 4px solid orangered;
+  border-radius: 5px;
+  background-color: darkgray;
+}
+
+mat-label {
+  background-color: ghostwhite;
+}
+div {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 img {
   height: 400px;
   width: 100%;
 }
 mat-card-header {
   background-color: #262424;
-  width: 100%;
-  color: #dd0f0f;
+  padding: 15px;
+  color: ghostwhite;
 }
 mat-card-subtitle {
-  color: aliceblue;
-  color: #dd0f0f;
+  color: ghostwhite;
 
+}
+mat-card-content {
+  margin-top: 15px;
+  border: 2px solid orangered;
+  border-radius: 5px;
+  background-color: ghostwhite;
 }
 

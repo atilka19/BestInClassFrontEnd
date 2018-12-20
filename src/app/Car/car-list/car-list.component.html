@@ -1,0 +1,41 @@
+<mat-label class="container"
+     fxLayout="row">
+  <h2>
+    Cars List
+  </h2>
+</mat-label>
+
+<div class="container"
+     fxLayout="row">
+  <h4 *ngIf="loading == true"
+      fxLayoutAlign="center center">
+    <mat-spinner></mat-spinner>
+  </h4>
+
+  <div class="reviewContainer"
+     fxFlexFill
+     fxLayout="row wrap"
+     fxLayoutGap="50"
+     fxLayoutAlign="start start"
+     style="padding: 1%"
+     *ngIf="_cars && loading == false">
+    <div fxLayout.xs="column"
+        fxFlex.sm="300px"
+        fxFlex.md="400px"
+        fxFlex.lg="450px"
+        fxFlex.xl="800px"
+        *ngFor="let car of _cars">
+
+      <mat-card routerLink="/cars/{{car.id}}">
+        <mat-card-title>
+          <img mat-card-avatar src="{{car.picture}}" alt="carPic">
+          {{car.make}} {{car.model}}
+        </mat-card-title>
+        <mat-card-subtitle>
+          {{car.type}} {{car.year}}
+        </mat-card-subtitle>
+        <label>(Click for more Info!)</label>
+      </mat-card>
+    </div>
+  </div>
+</div>

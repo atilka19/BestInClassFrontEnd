@@ -1,9 +1,10 @@
-<mat-divider></mat-divider>
+<div fxFill
+     fxLayout="column">
 <form class="example-form" [formGroup]="registerForm" (ngSubmit)="register()">
   <mat-form-field class="example-full-width">
     <input matInput placeholder="Username"  type="text" formControlName="username">
   </mat-form-field>
-  <mat-divider></mat-divider>
+  <br>
   <mat-form-field class="example-full-width">
     <input matInput type="password" placeholder="Password" formControlName="password">
   </mat-form-field>
@@ -11,3 +12,4 @@
   <button mat-fab color="primary" type="submit">Save</button>
   <button mat-fab color="primary" routerLink="/">Back</button>
 </form>
+</div>

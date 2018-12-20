@@ -7,10 +7,18 @@ import { LoginComponent } from './Shared/login/login.component';
 import { NavBarComponent } from './Shared/nav-bar/nav-bar.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
+  MatBadgeModule,
   MatButtonModule,
-  MatCardModule, MatDividerModule,
+  MatCardModule,
+  MatDividerModule,
   MatExpansionModule,
-  MatFormFieldModule, MatInputModule, MatListModule,
+  MatFormFieldModule,
+  MatGridListModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatPaginatorModule,
+  MatProgressSpinnerModule,
   MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
@@ -23,6 +31,11 @@ import { NewsAddComponent } from './News/news-add/news-add.component';
 import { NewsUpdateComponent } from './News/news-update/news-update.component';
 import { NewsByIdComponent } from './News/news-by-id/news-by-id.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import {BarRatingModule} from 'ngx-bar-rating';
+import { CarListComponent } from './Car/car-list/car-list.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import { CarAddComponent } from './Car/car-add/car-add.component';
+import { CarByIdComponent } from './Car/car-by-id/car-by-id.component';
 
 @NgModule({
   declarations: [
@@ -35,18 +48,28 @@ import { WelcomeComponent } from './welcome/welcome.component';
     NewsAddComponent,
     NewsUpdateComponent,
     NewsByIdComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    CarListComponent,
+    CarAddComponent,
+    CarByIdComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    FlexLayoutModule,
+    MatMenuModule,
     MatToolbarModule,
     MatExpansionModule,
+    MatPaginatorModule,
+    MatGridListModule,
     MatCardModule,
     HttpClientModule,
+    BarRatingModule,
     MatButtonModule,
+    MatProgressSpinnerModule,
+    BarRatingModule,
     FormsModule,
     MatFormFieldModule,
     MatListModule,

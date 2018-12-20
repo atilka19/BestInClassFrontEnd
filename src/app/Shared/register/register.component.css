@@ -1,0 +1,10 @@
+form {
+  border: 5px solid ghostwhite;
+  background: rgb(4,9,24);
+  padding: 70px 0;
+  text-align: center;
+}
+mat-form-field {
+  background-color: ghostwhite;
+  text-align: center;
+}

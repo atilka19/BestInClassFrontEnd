@@ -7,9 +7,16 @@ img {
   height: 200px;
   width: 100%;
 }
+
+
+h2 {
+  font-size: 1.5vw;
+  font-family: 'fullPack', 'arial', sans-serif;
+}
 mat-card {
-  width: 800px;
-  height: 260px;
+  margin-top: 15px;
+  border: 2px solid orangered;
+  border-radius: 5px;
   background-color: #111111;
   color: aliceblue;
 }

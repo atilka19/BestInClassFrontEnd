@@ -1,19 +1,39 @@
 <form [formGroup]="newsForm" (ngSubmit)="submit()">
-  <mat-form-field>
+  <h1>
+    Add a news Segment!
+  </h1>
+  <br>
+  <mat-form-field style="width: 300px">
     <input matInput placeholder="Header" type="text" formControlName="header">
   </mat-form-field>
-  <mat-form-field>
+  <mat-form-field style="width: 300px">
     <input matInput placeholder="Picture URL" type="url" formControlName="picture">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Short Description" type="text" formControlName="shortDesc">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Body" type="text" formControlName="body">
   </mat-form-field>
   <mat-form-field>
     <input matInput placeholder="Tags" type="text" formControlName="tags">
   </mat-form-field>
-  <button mat-flat-button color="primary" type="submit">Submit</button>
+  <mat-divider></mat-divider>
+  <mat-form-field style="width: 300px">
+    <textarea matInput
+              cdkTextareaAutosize
+              #autosize="cdkTextareaAutosize"
+              cdkAutosizeMinRows="2"
+              cdkAutosizeMaxRows="5"
+              formControlName="shortDesc"
+              placeholder="Short Description">
+
+    </textarea>
+  </mat-form-field>
+  <mat-divider></mat-divider>
+  <mat-form-field style="width: 400px">
+    <textarea matInput
+              cdkTextareaAutosize
+              #autosize="cdkTextareaAutosize"
+              cdkAutosizeMinRows="5"
+              cdkAutosizeMaxRows="15"
+              placeholder="Body"
+              formControlName="body"></textarea>
+  </mat-form-field>
+  <button mat-flat-button color="warn" type="submit">Submit</button>
 </form>
 

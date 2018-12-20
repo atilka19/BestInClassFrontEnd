@@ -1,35 +1,17 @@
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
+.fixed-header {
+  top: 0;
+  position: fixed;
+  z-index: 999;
+}
+.toolBarRow {
+  height: 75px;
 }
 
-li {
-  float: left;
+img {
+  width: 75px;
+  height: 100%;
 }
-
-li a {
-  display: block;
+button {
+  background-color: black;
   color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-#loginPad {
-  size: 100px;
-  height: 10px;
-}
-
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-  background-color: #111;
-}
-mat-toolbar-row {
-  background-color: #111111;
-}
-.fill-space {
-flex: 1 1 auto;
 }

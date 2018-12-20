@@ -3,12 +3,13 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {User} from '../Shared/models/User';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-   apiURL = 'https://localhost:44379';
+   apiURL = environment.apiEndPoint;
 
   constructor(private http: HttpClient) { }
 

@@ -1,2 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~ngx-bar-rating/themes/br-default-theme.css';
+
+html, body {
+  min-height: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+@font-face {
+  font-family: fullPack;
+  src: url(assets/full_Pack_2025.ttf) format("truetype");
+}
+
+h1 {
+  color: ghostwhite;
+  border: 5px solid ghostwhite;
+  width: 100%;
+  background-color: rgb(1,9,34);
+}
+
+h2 {
+  font-size: 16px;
+  font-family: 'fullPack', 'arial', sans-serif;
+}
+
+mat-form-field {
+  margin: 5px;
+  border-radius: 5px;
+  border: 3px solid ghostwhite;
+}
+
+mat-label {
+  width: 20%;
+  height: 75px;
+  color: ghostwhite;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 15px;
+  background-color: rgb(1,9,34);
+  border-radius: 15px;
+  border: 5px solid rgb(232,73,51);
+  padding: 10px;
+}
+
+form {
+  margin-top: 15px;
+  border: 3px solid red;
+  border-radius: 5px;
+  background-color: rgb(3,123,172);
+}
+

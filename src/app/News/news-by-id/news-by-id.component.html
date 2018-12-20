@@ -1,7 +1,16 @@
-<button mat-flat-button color="primary" routerLink="/">Back</button>
+<button mat-flat-button color="primary" routerLink="/"><-- Go Back</button>
+
+<h4 *ngIf="loading == true"
+    fxFill
+    fxLayoutAlign="center center">
+  <mat-spinner></mat-spinner>
+</h4>
+
 <div *ngIf="getIsAdmin() == true">
+  <mat-divider></mat-divider>
   <button mat-fab color="warn" routerLink="/news/update/{{ID}}">Update</button>
   <button mat-fab color="warn" (click)="deleteNews(news.id)">Delete</button>
+  <mat-divider></mat-divider>
 </div>
 <mat-card>
   <img src="{{news.picture}}" alt="newsgirl">

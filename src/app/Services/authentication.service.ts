@@ -9,12 +9,12 @@ import {environment} from '../../environments/environment';
   providedIn: 'root'
 })
 export class AuthenticationService {
-   apiURL = environment.apiEndPoint + '/token';
+   apiURL = environment.apiEndPoint;
 
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<boolean> {
-    return this.http.post<any>(this.apiURL, {username, password}).pipe(
+    return this.http.post<any>(this.apiURL + '/token', {username, password}).pipe(
       map(res => {
         const token = res && res.token;
 

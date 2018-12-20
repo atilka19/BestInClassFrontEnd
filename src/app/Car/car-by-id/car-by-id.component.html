@@ -3,61 +3,67 @@
     fxLayoutAlign="center center">
   <mat-spinner></mat-spinner>
 </h4>
+<div *ngIf="loading == false"
+     fxFill
+     fxLayout="column">
+<div *ngIf="loading == false && getIsAdmin() == true"
+     fxLayout="column">
+  <div fxLayout="row" fxLayoutAlign="center start">
+    <form [formGroup]="reviewForm" (ngSubmit)="submit()" fxLayout="row wrap">
+      <h1>
+        Add a Review to This Car!
+      </h1>
+      <mat-form-field>
+        <input matInput placeholder="Header" type="text" formControlName="header">
+      </mat-form-field>
+
+      <mat-divider></mat-divider>
+
+      <mat-form-field>
+          <textarea matInput
+                    cdkTextareaAutosize
+                    #autosize="cdkTextareaAutosize"
+                    cdkAutosizeMinRows="5"
+                    cdkAutosizeMaxRows="15"
+                    formControlName="body"
+                    placeholder="Body">
+          </textarea>
+      </mat-form-field>
+
+      <br>
+
+      <h3>
+        For every-day use:
+        <bar-rating name="ratingEveryDay" formControlName="ratingEveryday" [max]="5"></bar-rating>
+      </h3>
+
+      <mat-divider></mat-divider>
+
+      <h3>
+        For weekend use:
+        <bar-rating name="ratingWeekend" formControlName="ratingWeekend" [max]="5"></bar-rating>
+      </h3>
+      <h3>
+        Practicality:
+        <bar-rating name="ratingPracticality" formControlName="ratingPracticality" [max]="5"></bar-rating>
+      </h3>
+      <h3>
+        Exterior:
+        <bar-rating name="ratingExterior" formControlName="ratingExterior" [max]="5"></bar-rating>
+      </h3>
+      <h3>
+        Interior:
+        <bar-rating name="ratingInterior" formControlName="ratingInterior" [max]="5"></bar-rating>
+      </h3>
+      <br>
+      <button mat-flat-button color="warn" type="submit">Submit</button>
+    </form>
+  </div>
+</div>
 <div class="container"
      fxLayout="column"
-     fxFill>
-  <div *ngIf="loading == false && car">
-    <div fxLayout="row" fxLayoutAlign="center start">
-      <form [formGroup]="reviewForm" (ngSubmit)="submit()" fxLayout="row wrap">
-        <h1>
-          Add a Review to This Car!
-        </h1>
-        <mat-form-field>
-          <input matInput placeholder="Header" type="text" formControlName="header">
-        </mat-form-field>
-
-        <mat-divider></mat-divider>
-
-        <mat-form-field>
-          <textarea matInput
-            cdkTextareaAutosize
-            #autosize="cdkTextareaAutosize"
-            cdkAutosizeMinRows="5"
-            cdkAutosizeMaxRows="15"
-            formControlName="body"
-            placeholder="Body">
-          </textarea>
-        </mat-form-field>
-
-        <br>
-
-        <h3>
-          For every-day use:
-          <bar-rating name="ratingEveryDay" formControlName="ratingEveryday" [max]="5"></bar-rating>
-        </h3>
-
-        <mat-divider></mat-divider>
-
-        <h3>
-          For weekend use:
-          <bar-rating name="ratingWeekend" formControlName="ratingWeekend" [max]="5"></bar-rating>
-        </h3>
-        <h3>
-          Practicality:
-          <bar-rating name="ratingPracticality" formControlName="ratingPracticality" [max]="5"></bar-rating>
-        </h3>
-        <h3>
-          Exterior:
-          <bar-rating name="ratingExterior" formControlName="ratingExterior" [max]="5"></bar-rating>
-        </h3>
-        <h3>
-          Interior:
-          <bar-rating name="ratingInterior" formControlName="ratingInterior" [max]="5"></bar-rating>
-        </h3>
-        <br>
-        <button mat-flat-button color="warn" type="submit">Submit</button>
-      </form>
-    </div>
+     fxFill
+     *ngIf="loading == false && car">
     <div class="container"
          fxLayout="column">
       <div fxLayoutAlign="center">
@@ -86,18 +92,16 @@
     <mat-label class="container"
              fxLayout="row">
       <h2>
-        Reviews :
+        Reviews
       </h2>
     </mat-label>
     <mat-divider></mat-divider>
 
-    <div class="reviewContainer"
-       fxFlexFill
-       fxLayout="row wrap"
-       fxLayoutGap="50"
-       fxLayoutAlign="start start"
-       style="padding: 1%"
-        *ngIf="loading == false">
+    <div fxLayout="row wrap"
+         fxLayoutGap="50"
+         fxLayoutAlign="start start"
+         style="padding: 1%"
+        *ngIf="loading == false && getToken() != null">
       <div fxFlex="30%"
         fxFlex.xs="175px"
         fxFlex.sm="300px"

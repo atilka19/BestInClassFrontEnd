@@ -62,4 +62,12 @@ export class CarByIdComponent implements OnInit {
       this.router.navigateByUrl('/'));
     console.log(review);
   }
+
+  getIsAdmin(): boolean {
+    return this._authService.getIsAdmin();
+  }
+
+  getToken(): string {
+    return this._authService.getToken();
+  }
 }

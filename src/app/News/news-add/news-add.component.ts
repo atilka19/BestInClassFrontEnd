@@ -35,9 +35,13 @@ export class NewsAddComponent implements OnInit {
 
   submit() {
     const newstb = this.newsForm.value;
-    this._newsService.addNews(newstb).subscribe(() =>
-      this.router.navigateByUrl('/'));
-    window.location.reload();
+    this._newsService.addNews(newstb).subscribe(msg => {
+      window.alert('News Segment has been added!');
+      window.location.reload();
+      }, error => {
+        return error;
+      }
+    );
   }
 
 }

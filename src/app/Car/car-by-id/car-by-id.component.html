@@ -1,51 +1,145 @@
+<h4 *ngIf="loading == true"
+    fxFill
+    fxLayoutAlign="center center">
+  <mat-spinner></mat-spinner>
+</h4>
 <div class="container"
      fxLayout="column"
      fxFill>
-<div fxLayoutAlign="center">
-  <mat-grid-list fxFlex="50" [fxFlex.md]="'50'" [fxFlex.sm]="'100'"  cols="5" rowHeight="100px" *ngIf="car">
-  <mat-grid-tile colspan="2" rowspan="2" id="imgTile">
-    <img src="{{car.picture}}" alt="carPic" layout-fill>
-  </mat-grid-tile>
-  <mat-grid-tile colspan="3" rowspan="1" id="tile">
-    <mat-card class="carCard">
-      <mat-card-title>
-        {{car.make}} {{car.model}}
-      </mat-card-title>
-      <mat-card-subtitle>
-        {{car.year}} {{car.type}}
-      </mat-card-subtitle>
-    </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
-  <br>
-  <h4 *ngIf="loading == true"
-      fxFill
-      fxLayoutAlign="center center">
-    <mat-spinner></mat-spinner>
-  </h4>
-</div>
-  <div fxLayout="row wrap"
-       fxLayoutAlign="space-evenly start"
-       fxLayoutGap="40px"
+  <div *ngIf="loading == false && car">
+    <div fxLayout="row" fxLayoutAlign="center start">
+      <form [formGroup]="reviewForm" (ngSubmit)="submit()" fxLayout="row wrap">
+        <h1>
+          Add a Review to This Car!
+        </h1>
+        <mat-form-field>
+          <input matInput placeholder="Header" type="text" formControlName="header">
+        </mat-form-field>
+
+        <mat-divider></mat-divider>
+
+        <mat-form-field>
+          <textarea matInput
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="5"
+            cdkAutosizeMaxRows="15"
+            formControlName="body"
+            placeholder="Body">
+          </textarea>
+        </mat-form-field>
+
+        <br>
+
+        <h3>
+          For every-day use:
+          <bar-rating name="ratingEveryDay" formControlName="ratingEveryday" [max]="5"></bar-rating>
+        </h3>
+
+        <mat-divider></mat-divider>
+
+        <h3>
+          For weekend use:
+          <bar-rating name="ratingWeekend" formControlName="ratingWeekend" [max]="5"></bar-rating>
+        </h3>
+        <h3>
+          Practicality:
+          <bar-rating name="ratingPracticality" formControlName="ratingPracticality" [max]="5"></bar-rating>
+        </h3>
+        <h3>
+          Exterior:
+          <bar-rating name="ratingExterior" formControlName="ratingExterior" [max]="5"></bar-rating>
+        </h3>
+        <h3>
+          Interior:
+          <bar-rating name="ratingInterior" formControlName="ratingInterior" [max]="5"></bar-rating>
+        </h3>
+        <br>
+        <button mat-flat-button color="warn" type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="container"
+         fxLayout="column">
+      <div fxLayoutAlign="center">
+        <mat-grid-list fxFlex="50"
+                 cols="5"
+                 rowHeight="100px"
+                 *ngIf="car">
+          <mat-grid-tile colspan="2" rowspan="1" id="imgTile">
+            <img src="{{car.picture}}" alt="carPic" layout-fill>
+          </mat-grid-tile>
+          <mat-grid-tile colspan="3" rowspan="1" id="tile">
+            <mat-card class="carCard">
+              <mat-card-title>
+                {{car.make}} {{car.model}}
+              </mat-card-title>
+              <mat-card-subtitle>
+                {{car.year}} {{car.type}}
+              </mat-card-subtitle>
+            </mat-card>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+    </div>
+
+        <mat-divider></mat-divider>
+    <mat-label class="container"
+             fxLayout="row">
+      <h2>
+        Reviews :
+      </h2>
+    </mat-label>
+    <mat-divider></mat-divider>
+
+    <div class="reviewContainer"
+       fxFlexFill
+       fxLayout="row wrap"
+       fxLayoutGap="50"
+       fxLayoutAlign="start start"
+       style="padding: 1%"
         *ngIf="loading == false">
-  <div fxFlex="33"
-    [fxFlex.md]="'700'"
-    [fxFlex.sm]="'300'"
-    [fxFlex.xs]="'300'"
-    *ngFor="let review of reviews">
-<mat-card  class="reviewCards" >
-    <mat-card-title>
-      {{review.header}}
-        </mat-card-title>
-          <mat-card-subtitle>
-            {{review.ratingOverAll}}
-            {{review.ratingEveryDay}} {{review.ratingWeekend}} {{review.ratingPracticality}}
-            {{review.ratingExterior}} {{review.ratingInterior}}
+      <div fxFlex="30%"
+        fxFlex.xs="175px"
+        fxFlex.sm="300px"
+        fxFlex.md="600px"
+        fxFlex.lg="900px"
+        fxFlex.xl="1250px"
+        *ngFor="let review of reviews">
+        <mat-card  class="reviewCards" >
+          <mat-card-title>
+          {{review.header}}
+          </mat-card-title>
+          <mat-card-subtitle fxLayout="row wrap" class="ratingElement">
+            <h4>
+              OverAll
+              <bar-rating [(rate)]="review.ratingOverall" [max]="5" [readOnly]="true"></bar-rating>
+            </h4>
+            <h4>
+              EveryDay
+              <bar-rating [(rate)]="review.ratingEveryday" [max]="5" [readOnly]="true"></bar-rating>
+            </h4>
+            <h4>
+              Weekend
+              <bar-rating [(rate)]="review.ratingWeekend" [max]="5" [readOnly]="true"></bar-rating>
+            </h4>
+            <h4>
+              Practicality
+              <bar-rating [(rate)]="review.ratingPracticality" [max]="5" [readOnly]="true"></bar-rating>
+            </h4>
+            <h4>
+              Exterior
+              <bar-rating [(rate)]="review.ratingExterior" [max]="5" [readOnly]="true"></bar-rating>
+            </h4>
+            <h4>
+              Interior
+              <bar-rating [(rate)]="review.ratingInterior" [max]="5" [readOnly]="true"></bar-rating>
+            </h4>
           </mat-card-subtitle>
-        <mat-card-content>
-          {{review.body}}
-    </mat-card-content>
-</mat-card>
-  </div>
+          <mat-card-content class="reviewCardContent">
+            {{review.body}}
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,22 +1,19 @@
-  <mat-toolbar align="left">
-    <mat-toolbar-row id="TBRow1" color="primary">
-    </mat-toolbar-row>
+<mat-toolbar align="left" class="fixed-header">
+  <mat-toolbar-row class="toolBarRow" style="background-image: url('assets/img/header1.jpg');">
+    <img src="assets/img/logo.png" alt="logo">
+  </mat-toolbar-row>
+<mat-toolbar-row align="left" class="toolBarRow" style="background-image: url('assets/img/header2.jpg');">
+  <div fxLayout="row" fxFlex fxLayoutGap="10px">
     <mat-toolbar-row fxLayoutAlign="start" #tbrow2>
-        <li><a routerLink="/">News</a></li>
-        <li><a routerLink="/reviews">Reviews</a></li>
-        <li><a routerLink="/cars">Cars</a></li>
-        <li><a routerLink="/">Forums</a></li>
-        <li><a routerLink="/">My Story</a></li>
-        <li><a routerLink="/">Feedback</a></li>
-        <li><a routerLink="/">About us</a></li>
-
-      <span class="fill-space"></span>
+      <button mat-flat-button routerLink="/">News</button>
+      <button mat-flat-button routerLink="/cars">Cars</button>
+      <span fxFlex></span>
       <button *ngIf="getToken() == null " mat-flat-button color="primary" [matMenuTriggerFor]="Loginmenu">Login</button>
       <mat-menu #Loginmenu="matMenu">
-      <button mat-flat-button color="primary" routerLink="/login">Login</button>
-      <a align="center">--OR--</a>
-      <button mat-flat-button color="primary" routerLink="/register">Register</button>
-    </mat-menu>
+        <button mat-flat-button color="primary" routerLink="/login">Login</button>
+        <a align="center">--OR--</a>
+        <button mat-flat-button color="primary" routerLink="/register">Register</button>
+      </mat-menu>
       <button *ngIf="getToken()" mat-flat-button color="primary" [matMenuTriggerFor]="Loggedinmenu">My account</button>
       <mat-menu #Loggedinmenu="matMenu">
         Logged-in as {{getUser()}}
@@ -24,4 +21,6 @@
         <button mat-flat-button color="Warn" (click)="logout()">Logout</button>
       </mat-menu>
     </mat-toolbar-row>
-  </mat-toolbar>
+  </div>
+</mat-toolbar-row>
+</mat-toolbar>

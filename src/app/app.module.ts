@@ -7,10 +7,18 @@ import { LoginComponent } from './Shared/login/login.component';
 import { NavBarComponent } from './Shared/nav-bar/nav-bar.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
+  MatBadgeModule,
   MatButtonModule,
-  MatCardModule, MatDividerModule,
+  MatCardModule,
+  MatDividerModule,
   MatExpansionModule,
-  MatFormFieldModule, MatGridListModule, MatInputModule, MatListModule, MatMenuModule, MatProgressSpinnerModule,
+  MatFormFieldModule,
+  MatGridListModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatPaginatorModule,
+  MatProgressSpinnerModule,
   MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
@@ -28,8 +36,6 @@ import { CarListComponent } from './Car/car-list/car-list.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { CarAddComponent } from './Car/car-add/car-add.component';
 import { CarByIdComponent } from './Car/car-by-id/car-by-id.component';
-import { ReviewListComponent } from './Review/review-list/review-list.component';
-import { ReviewByIdComponent } from './Review/review-by-id/review-by-id.component';
 
 @NgModule({
   declarations: [
@@ -46,8 +52,6 @@ import { ReviewByIdComponent } from './Review/review-by-id/review-by-id.componen
     CarListComponent,
     CarAddComponent,
     CarByIdComponent,
-    ReviewListComponent,
-    ReviewByIdComponent
   ],
   imports: [
     BrowserModule,
@@ -58,12 +62,14 @@ import { ReviewByIdComponent } from './Review/review-by-id/review-by-id.componen
     MatMenuModule,
     MatToolbarModule,
     MatExpansionModule,
+    MatPaginatorModule,
     MatGridListModule,
     MatCardModule,
     HttpClientModule,
     BarRatingModule,
     MatButtonModule,
     MatProgressSpinnerModule,
+    BarRatingModule,
     FormsModule,
     MatFormFieldModule,
     MatListModule,

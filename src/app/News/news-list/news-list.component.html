@@ -1,14 +1,41 @@
 <div class="container"
      fxLayout="column"
-     fxFill
      fxLayoutGap="30px">
-  <div fxLayout="row">
+  <div fxLayout="row" fxLayoutAlign="center start">
     <app-news-add *ngIf="getIsAdmin() == true"></app-news-add>
+    <mat-divider></mat-divider>
   </div>
-  <div fxLayout="row wrap" fxLayoutAlign="center" *ngIf="_news">
-    <div fxFlex="50"
-         [fxFlex.md]="'300'"
-         [fxFlex.sm]="'300'"
+  <div fxLayout="row"
+       fxLayoutAlign="start">
+    <mat-paginator [length]="count"
+                   [pageSize]="PE.pageSize"
+                   [pageSizeOptions]="[10, 20, 50, 120]"
+                   (page)="changePage($event)">
+    </mat-paginator>
+  </div>
+  <mat-divider></mat-divider>
+  <mat-label class="container"
+             fxLayout="row">
+    <h2>
+      News :
+    </h2>
+  </mat-label>
+  <mat-divider></mat-divider>
+
+
+  <div class="reviewContainer"
+       fxFlexFill
+       fxLayout="row wrap"
+       fxLayoutGap="50"
+       fxLayoutAlign="start start"
+       style="padding: 1%"
+       *ngIf="_news">
+    <div fxFlex="30%"
+         fxFlex.xs="175px"
+         fxFlex.sm="300px"
+         fxFlex.md="600px"
+         fxFlex.lg="900px"
+         fxFlex.xl="1250px"
          *ngFor="let news of _news">
       <mat-card>
         <mat-card-header>

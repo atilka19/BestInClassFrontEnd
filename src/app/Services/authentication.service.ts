@@ -3,17 +3,18 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {User} from '../Shared/models/User';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-   apiURL = 'https://localhost:44379';
+   apiURL = environment.apiEndPoint + '/token';
 
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<boolean> {
-    return this.http.post<any>(this.apiURL + '/token', {username, password}).pipe(
+    return this.http.post<any>(this.apiURL, {username, password}).pipe(
       map(res => {
         const token = res && res.token;
 

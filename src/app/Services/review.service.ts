@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {AuthenticationService} from './authentication.service';
 import {Observable} from 'rxjs';
 import {Review} from '../Shared/models/Review';
+import {PagedList} from '../Shared/models/PagedList';
+import {environment} from '../../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -16,15 +18,26 @@ const httpOptions = {
 })
 export class ReviewService {
 
-  apiURL = 'https://localhost:44379/api/review';
+  apiURL = environment.apiEndPoint + '/api/review';
 
   constructor(private http: HttpClient, private authService: AuthenticationService) { }
 
-  getReviews(): Observable<Review[]> {
+  getAllReviews(currentPage: number, itemsPrPage: number): Observable<PagedList<Review>> {
+    const params = new HttpParams()
+      .set('currentPage', currentPage.toString())
+      .set('itemsPrPage', itemsPrPage.toString());
+    return this.http.get <PagedList<Review>>(this.apiURL, {params: params});
+  }
+
+  getReviews(currentPage: number, itemsPrPage: number): Observable<PagedList<Review>> {
     httpOptions.headers =
       httpOptions.headers.set('Authorization', 'Bearer' + this.authService.getToken());
 
-    return this.http.get<Review[]>(this.apiURL, httpOptions);
+    const params = new HttpParams()
+      .set('currentPage', currentPage.toString())
+      .set('itemsPrPage', itemsPrPage.toString());
+    // @ts-ignore
+    return this.http.get<PagedList<Review>>(this.apiURL, {params: params}, httpOptions );
   }
 
   getReviewByID(id: number): Observable<Review> {

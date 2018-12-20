@@ -4,6 +4,9 @@ import {AuthenticationService} from '../../Services/authentication.service';
 import {CarService} from '../../Services/car.service';
 import {Car} from '../../Shared/models/Car';
 import {Review} from '../../Shared/models/Review';
+import { Rating } from 'material-ui-rating'
+import {ReviewService} from '../../Services/review.service';
+import {FormControl, FormGroup} from '@angular/forms';
 
 export interface Tile {
   color: string;
@@ -23,10 +26,21 @@ export class CarByIdComponent implements OnInit {
   reviews: Review[];
   loading: boolean;
 
+  reviewForm = new FormGroup( {
+    header: new FormControl(''),
+    body: new FormControl(''),
+    ratingEveryday: new FormControl(''),
+    ratingWeekend: new FormControl(''),
+    ratingPracticality: new FormControl(''),
+    ratingExterior: new FormControl(''),
+    ratingInterior: new FormControl('')
+  });
+
   constructor(private route: ActivatedRoute,
               private router: Router,
               private _carService: CarService,
-              private _authService: AuthenticationService) { }
+              private _authService: AuthenticationService,
+              private _reviewService: ReviewService) { }
 
   ngOnInit() {
     this.loading = true;
@@ -37,5 +51,15 @@ export class CarByIdComponent implements OnInit {
       console.log(this.reviews);
       this.loading = false;
     });
+  }
+
+  submit() {
+    const review = this.reviewForm.value;
+    const car = new Car();
+    car.id = this.ID;
+    review.car = car;
+    this._reviewService.addReview(review).subscribe(() =>
+      this.router.navigateByUrl('/'));
+    console.log(review);
   }
 }

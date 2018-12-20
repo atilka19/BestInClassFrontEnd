@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {AuthenticationService} from './authentication.service';
 import {Observable} from 'rxjs';
 import {Car} from '../Shared/models/Car';
 import {News} from '../Shared/models/News';
+import {environment} from '../../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -16,7 +17,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class CarService {
-  apiURL = 'https://localhost:44379/api/car';
+  apiURL = environment.apiEndPoint + '/api/car';
 
   constructor(private http: HttpClient, private authService: AuthenticationService) { }
 

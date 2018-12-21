@@ -32,11 +32,10 @@ export class CarListComponent implements OnInit {
 
   refresh() {
     this.loading = true;
-    this._carService.getCars(this.PE.pageIndex + 1, this.PE.pageSize)
-      .subscribe(pagedList => {
-        this.count = pagedList.count;
-        console.log(pagedList);
-        this._cars = pagedList.list;
+    this._carService.getCars(this.PE.pageIndex + 1, this.PE.pageSize).subscribe(list => {
+        this._cars = list.list;
+        this.count = list.count;
+        console.log(list);
         this.loading = false;
       }, error => {
         this.loading = false;

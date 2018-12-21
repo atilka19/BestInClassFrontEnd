@@ -26,9 +26,7 @@ export class CarService {
     const params = new HttpParams()
       .set('currentPage', currentPage.toString())
       .set('itemsPrPage', itemsPrPage.toString());
-
-    // @ts-ignore
-    return this.http.get<PagedList<Car>>(this.apiURL, {params: params});
+    return this.http.get <PagedList<Car>>(this.apiURL, {params: params});
   }
 
   getCarByID(id: number): Observable<Car> {

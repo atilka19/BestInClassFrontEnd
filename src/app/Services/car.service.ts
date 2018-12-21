@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {Car} from '../Shared/models/Car';
 import {News} from '../Shared/models/News';
 import {environment} from '../../environments/environment';
+import {PagedList} from '../Shared/models/PagedList';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -21,11 +22,13 @@ export class CarService {
 
   constructor(private http: HttpClient, private authService: AuthenticationService) { }
 
-  getCars(): Observable<Car[]> {
-    httpOptions.headers =
-      httpOptions.headers.set('Authorization', 'Bearer' + this.authService.getToken());
+  getCars(currentPage: number, itemsPrPage: number): Observable<PagedList<Car>> {
+    const params = new HttpParams()
+      .set('currentPage', currentPage.toString())
+      .set('itemsPrPage', itemsPrPage.toString());
 
-    return this.http.get<Car[]>(this.apiURL, httpOptions);
+    // @ts-ignore
+    return this.http.get<PagedList<Car>>(this.apiURL, {params: params});
   }
 
   getCarByID(id: number): Observable<Car> {

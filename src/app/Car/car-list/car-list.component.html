@@ -1,9 +1,20 @@
+<div class="container"
+     fxLayout="column"
+     fxLayoutGap="30px">
 <mat-label class="container"
      fxLayout="row">
   <h2>
     Cars List
   </h2>
 </mat-label>
+  <div fxLayout="row"
+       fxLayoutAlign="start">
+    <mat-paginator [length]="count"
+                   [pageSize]="PE.pageSize"
+                   [pageSizeOptions]="[10, 20, 50, 120]"
+                   (page)="changePage($event)">
+    </mat-paginator>
+  </div>
 
 <div class="container"
      fxLayout="row">
@@ -11,7 +22,6 @@
       fxLayoutAlign="center center">
     <mat-spinner></mat-spinner>
   </h4>
-
   <div class="reviewContainer"
      fxFlexFill
      fxLayout="row wrap"
@@ -19,6 +29,7 @@
      fxLayoutAlign="start start"
      style="padding: 1%"
      *ngIf="_cars && loading == false">
+
     <div fxLayout.xs="column"
         fxFlex.sm="300px"
         fxFlex.md="400px"
@@ -38,4 +49,5 @@
       </mat-card>
     </div>
   </div>
+</div>
 </div>

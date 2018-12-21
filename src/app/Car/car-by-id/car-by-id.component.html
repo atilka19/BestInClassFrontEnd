@@ -4,7 +4,6 @@
   <mat-spinner></mat-spinner>
 </h4>
 <div *ngIf="loading == false"
-     fxFill
      fxLayout="column">
 <div *ngIf="loading == false && getIsAdmin() == true"
      fxLayout="column">
@@ -89,13 +88,14 @@
     </div>
 
         <mat-divider></mat-divider>
-    <mat-label class="container"
-             fxLayout="row">
-      <h2>
-        Reviews
-      </h2>
-    </mat-label>
-    <mat-divider></mat-divider>
+
+  <mat-label class="container"
+             fxLayout="row"
+              *ngIf="getToken() != null">
+    <h2>
+      Reviews
+    </h2>
+  </mat-label>
 
     <div fxLayout="row wrap"
          fxLayoutGap="50"

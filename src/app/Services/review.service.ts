@@ -30,9 +30,6 @@ export class ReviewService {
   }
 
   getReviews(currentPage: number, itemsPrPage: number): Observable<PagedList<Review>> {
-    httpOptions.headers =
-      httpOptions.headers.set('Authorization', 'Bearer' + this.authService.getToken());
-
     const params = new HttpParams()
       .set('currentPage', currentPage.toString())
       .set('itemsPrPage', itemsPrPage.toString());

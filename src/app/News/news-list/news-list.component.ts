@@ -30,7 +30,8 @@ export class NewsListComponent implements OnInit {
   }
 
   refresh() {
-      this._newsService.getNews(this.PE.pageIndex + 1, this.PE.pageSize).subscribe(pagedList => {
+      this._newsService.getNews(this.PE.pageIndex + 1, this.PE.pageSize)
+        .subscribe(pagedList => {
         this.count = pagedList.count;
         this._news = pagedList.list;
       }, error => {

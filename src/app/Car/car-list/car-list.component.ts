@@ -4,6 +4,7 @@ import {NewsService} from '../../Services/news.service';
 import {Router} from '@angular/router';
 import {Car} from '../../Shared/models/Car';
 import {CarService} from '../../Services/car.service';
+import {PageEvent} from '@angular/material';
 
 @Component({
   selector: 'app-car-list',
@@ -13,19 +14,29 @@ import {CarService} from '../../Services/car.service';
 export class CarListComponent implements OnInit {
   _cars: Car[];
   loading: boolean;
+  count: number;
+  PE: PageEvent;
 
   constructor(private _authService: AuthenticationService,
               private _carService: CarService,
               private router: Router) { }
 
   ngOnInit() {
+    this.PE = {
+      pageIndex: 0,
+      pageSize: 6,
+      length: this.count
+    };
     this.refresh();
   }
 
   refresh() {
     this.loading = true;
-    this._carService.getCars().subscribe(list => {
-        this._cars = list;
+    this._carService.getCars(this.PE.pageIndex + 1, this.PE.pageSize)
+      .subscribe(pagedList => {
+        this.count = pagedList.count;
+        console.log(pagedList);
+        this._cars = pagedList.list;
         this.loading = false;
       }, error => {
         this.loading = false;
@@ -36,5 +47,10 @@ export class CarListComponent implements OnInit {
 
   getIsAdmin(): boolean {
     return this._authService.getIsAdmin();
+  }
+
+  changePage(event: PageEvent) {
+    this.PE = event;
+    this.refresh();
   }
 }

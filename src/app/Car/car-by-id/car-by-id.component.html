@@ -5,7 +5,7 @@
 </h4>
 <div *ngIf="loading == false"
      fxLayout="column">
-<div *ngIf="loading == false && getIsAdmin() == true"
+<div *ngIf="loading == false && getToken() != null"
      fxLayout="column">
   <div fxLayout="row" fxLayoutAlign="center start">
     <form [formGroup]="reviewForm" (ngSubmit)="submit()" fxLayout="row wrap">

@@ -10,7 +10,8 @@ export class AdminGuard implements CanActivate {
   constructor(private router: Router, private authService: AuthenticationService) { }
 
   canActivate() {
-    if (this.authService.getIsAdmin() === true && this.authService.getToken()) {
+    if (this.authService.getIsAdmin() === true && this.authService
+      .getToken()) {
       return true;
     }
 
@@ -18,3 +19,4 @@ export class AdminGuard implements CanActivate {
     return false;
   }
 }
+
